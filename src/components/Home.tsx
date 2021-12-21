@@ -25,7 +25,7 @@ function Home() {
 const Contain = styled.div`
   position: relative;
   width: 100%;
-  height: 1000px;
+  height: 900px;
 `;
 
 const Title = styled.h1`
@@ -37,7 +37,7 @@ const Title = styled.h1`
   height: 150px;
   text-align: center;
   line-height: 75px;
-  color: skyblue;
+  color: #fff;
 `;
 
 const Button = styled.button`
@@ -49,8 +49,8 @@ const Button = styled.button`
   height: 70px;
   border: none;
   border-radius: 50%;
-  background-color: hotpink;
-  color: skyblue;
+  background-color: skyblue;
+  color: #fff;
   font-size: 18px;
   font-weight: bold;
 `;
