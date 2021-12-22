@@ -1,12 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 function SymptomInput() {
+  const [order, setOrder] = useState();
+
+  const inputName = () => {
+    // input 태그의 name 바꾸기 함수
+  };
+
+  const inputValue = () => {
+    // input 태그의 value 바꾸기 함수
+  };
+
   return (
     <Contain>
-      <Title>증상을 입력해주세요</Title>
-      <Input type="text" placeholder="ex.다리가 붓고 아파요."></Input>
-      <Button type="button">전송</Button>
+      <Title>어디가 아프신가요?</Title>
+      <Form>
+        <input type="radio" name="body" value="head" />
+        <input type="radio" name="body" value="heart" />
+        <input type="radio" name="body" value="stomach" />
+        <input type="radio" name="body" value="arm" />
+        <input type="radio" name="body" value="thigh" />
+        <input type="radio" name="body" value="calf" />
+        <input type="radio" name="body" value="finger and toes" />
+      </Form>
+      <Desc>
+        <p>머리</p>
+        <p>가슴</p>
+        <p>배</p>
+        <p>팔</p>
+        <p>허벅지</p>
+        <p>종아리</p>
+        <p>손가락, 발가락</p>
+      </Desc>
     </Contain>
   );
 }
@@ -29,25 +55,34 @@ const Title = styled.h1`
   color: #fff;
 `;
 
-const Input = styled.input`
+const Form = styled.form`
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: 40px;
-  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  input {
+    width: 120px;
+    margin: 0;
+  }
 `;
 
-const Button = styled.button`
+const Desc = styled.div`
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100px;
-  height: 50px;
-  color: #fff;
-  background-color: skyblue;
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  p {
+    width: 120px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+  }
 `;
 
 export default SymptomInput;
