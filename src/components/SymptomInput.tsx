@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 // symptom 데이터 모듈로 분리하기, Form 스타일 order가 1이 되면 스타일 수정하게 하기
 
+type FormType = {
+  order: string;
+};
+
 function SymptomInput() {
   const [order, setOrder] = useState(0);
   const [radioName, setRadioName] = useState("body");
@@ -128,11 +132,12 @@ function SymptomInput() {
       });
     }
   };
+  console.log(order);
 
   return (
     <Contain>
       <Title>{order === 0 ? "어디가 아프신가요?" : "어떻게 아프신가요?"}</Title>
-      <Arrows>
+      <Arrows order={`${order}`}>
         <i
           className="fas fa-caret-left arrow-left"
           onClick={(): void => {
@@ -140,6 +145,7 @@ function SymptomInput() {
               return;
             } else {
               setOrder(order - 1);
+              setRadioName("body");
             }
           }}
         ></i>
@@ -158,7 +164,7 @@ function SymptomInput() {
           }}
         ></i>
       </Arrows>
-      <Form name={`${order}`}>{inputs(order)}</Form>
+      <Form order={`${order}`}>{inputs(order)}</Form>
     </Contain>
   );
 }
@@ -167,11 +173,12 @@ const Contain = styled.div`
   position: relative;
   width: 100%;
   height: 960px;
+  font-family: "SBAggroB";
 `;
 
 const Title = styled.h1`
   position: absolute;
-  top: 15%;
+  top: 17%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
@@ -179,20 +186,21 @@ const Title = styled.h1`
   text-align: center;
   line-height: 75px;
   color: #fff;
+  font-size: 50px;
 `;
 
-const Form = styled.form`
+const Form = styled.form<FormType>`
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
-  ${({ name }): string => {
-    return name !== "0" ? `display : block;` : `display : flex; justify-content: space-between;`;
+  ${({ order }): string => {
+    return order !== "0" ? `display : block;` : `display : flex; justify-content: space-between;`;
   }};
   width: 960px;
   input {
-    ${({ name }): string => {
-      return name !== "0" ? "width:50px;" : "width:120px";
+    ${({ order }): string => {
+      return order !== "0" ? "width:50px;" : "width:120px";
     }};
     margin: 0;
   }
@@ -200,19 +208,22 @@ const Form = styled.form`
     text-align: center;
     color: #331b3f;
     font-weight: bold;
+    font-size: 18px;
+    margin-top: 8px;
   }
   div {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
   span {
     color: #331b3f;
     font-weight: bold;
+    font-size: 18px;
   }
 `;
 
-const Arrows = styled.div`
+const Arrows = styled.div<FormType>`
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 960px;
@@ -222,6 +233,9 @@ const Arrows = styled.div`
     color: #fff;
   }
   .arrow-left {
+    ${({ order }) => {
+      return order === "0" ? "opacity:0; visibility:none;" : "opacity:1; visibility:visible";
+    }};
     position: absolute;
     left: -70px;
     top: 5px;
