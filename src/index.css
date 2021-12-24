@@ -7,6 +7,12 @@ body {
   background: url("images/main-bg.png") no-repeat center top fixed;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  color: #331b3f;
+}
+
 input,
 button {
   border: none;
@@ -23,4 +29,11 @@ button:active {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+@font-face {
+  font-family: "SBAggroB";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
