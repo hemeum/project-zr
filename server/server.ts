@@ -1,5 +1,9 @@
 import express from "express";
 
+type Data = {
+  [key: string]: string;
+};
+
 const { diseases } = require("./data");
 const app: express.Application = express();
 const port = 4000;
@@ -7,8 +11,11 @@ const port = 4000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.get("/api/disease", (req: express.Request, res: express.Response) => {
-  res.send(diseases);
+app.post("/api/disease", (req: express.Request, res: express.Response) => {
+  const disease = diseases.filter((data: Data) => {
+    return data.name === req.body.disease;
+  });
+  res.send(disease);
 });
 
 app.listen(port, () => {
