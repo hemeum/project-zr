@@ -187,6 +187,7 @@ const Title = styled.h1`
   line-height: 75px;
   color: #fff;
   font-size: 50px;
+  text-shadow: 0 4px 0 #6ba992;
 `;
 
 const Form = styled.form<FormType>`

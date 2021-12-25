@@ -84,6 +84,7 @@ const TitleContain = styled.div`
     width: 300px;
     h2 {
       margin-bottom: 10px;
+      font-size: 35px;
     }
     p {
       width: 300px;
@@ -119,7 +120,7 @@ const Button = styled.button`
   width: 120px;
   height: 60px;
   padding: 10px;
-  margin-top: 60px;
+  margin-top: 50px;
   background: none;
   border: 3px solid #331b3f;
   border-radius: 5px;
