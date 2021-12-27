@@ -192,14 +192,14 @@ const Img = styled.img`
   filter: drop-shadow(0px 5px 0px #331b3f);
 `;
 
-const ButtonContain = styled.div`
+export const ButtonContain = styled.div`
   display: flex;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   width: 120px;
   height: 60px;
   padding: 10px;
