@@ -12,7 +12,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.post("/api/disease", (req: express.Request, res: express.Response) => {
-  const disease = diseases.filter((data: Data) => {
+  /*const disease = diseases.filter((data: Data) => {
+    return data.name === req.body.disease;
+  });
+  res.send(disease);*/
+  const bodyArr = diseases[req.body.body];
+  const disease = bodyArr.filter((data: Data) => {
     return data.name === req.body.disease;
   });
   res.send(disease);

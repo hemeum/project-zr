@@ -19,6 +19,8 @@ function Disease() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const locationStateType = location.state as string[];
+
   const [value, setValue] = useState<Value[]>([{ name: "", symptom: "", hospital: "", medicine: "" }]);
   const [loading, setLoading] = useState(false);
   const [isAddress, setIsAddress] = useState(false);
@@ -36,12 +38,14 @@ function Disease() {
   };
 
   useEffect(() => {
-    axios.post("/api/disease", { disease: location.state }).then((res: AxiosResponse) => {
-      setValue(res.data);
-      setTimeout(() => {
-        setLoading(true);
-      }, 1500);
-    });
+    axios
+      .post("/api/disease", { disease: locationStateType[0], body: locationStateType[1] })
+      .then((res: AxiosResponse) => {
+        setValue(res.data);
+        setTimeout(() => {
+          setLoading(true);
+        }, 1500);
+      });
   }, []);
 
   return (
@@ -167,7 +171,7 @@ const TitleContain = styled.div`
     width: 300px;
     h2 {
       margin-bottom: 10px;
-      font-size: 35px;
+      font-size: 25px;
     }
     p {
       width: 300px;
