@@ -192,7 +192,7 @@ const SubContain = styled.div`
 const Img = styled.img`
   width: 200px;
   height: 200px;
-  margin-left: 100px;
+  margin: 30px 30px 0px 70px;
   filter: drop-shadow(0px 5px 0px #331b3f);
 `;
 
