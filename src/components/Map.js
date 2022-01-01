@@ -101,26 +101,24 @@ const Map = () => {
         {isClick ? (
           <Ul>
             <li>
-              <i className="fas fa-hospital"></i>
+              <img src={process.env.PUBLIC_URL + "img/hos-7.png"} />
               <h4>{name}</h4>
             </li>
             <li>
-              <i className="fas fa-home"></i>
+              <img src={process.env.PUBLIC_URL + "img/hom-5.png"} />
               <h4>{post}</h4>
             </li>
             <li>
-              <i className="fas fa-phone"></i>
+              <img src={process.env.PUBLIC_URL + "img/pho-2.png"} />
               <h4>{phone ? phone : "비공개"}</h4>
             </li>
             <li>
-              <i className="fas fa-scroll"></i>
+              <img src={process.env.PUBLIC_URL + "img/u-2.png"} />
               <a href={url}>
                 <h4>{url}</h4>
               </a>
             </li>
-            <li>
-              <p>※ 홈페이지에 접속하시면 더 자세한 정보를 확인할 수 있습니다.</p>
-            </li>
+            <p>※ 홈페이지에 접속하시면 더 자세한 정보를 확인할 수 있습니다.</p>
           </Ul>
         ) : undefined}
         <BContain>
@@ -155,22 +153,42 @@ const Ul = styled.ul`
   width: 400px;
   height: 350px;
   background-color: #fff;
-  padding: 10px 20px;
+  padding: 20px;
+  font-family: "SBAggroB";
+  box-shadow: rgba(0, 0, 0, 0.2) 3px 3px 10px inset;
+  p {
+    font-size: 13px;
+    color: gray;
+    padding-top: 15px;
+    margin-left: 10px;
+  }
   li {
     width: 400px;
-    height: 66px;
+    height: 60px;
     display: flex;
-    line-height: 70px;
-    i {
+    align-items: center;
+    margin-bottom: 5px;
+    :last-child {
+      margin-bottom: 0px;
+    }
+
+    a {
+      text-decoration: none;
+      h4 {
+        color: blue;
+      }
+    }
+
+    img {
+      width: 50px;
+      height: 100%;
       font-size: 25px;
-      line-height: 70px;
       margin-right: 10px;
     }
-    p {
-      :last-child {
-        font-size: 13px;
-        color: gray;
-      }
+    h4 {
+      width: 300px;
+      font-size: 14px;
+      word-wrap: break-word;
     }
   }
 `;

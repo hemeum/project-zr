@@ -190,10 +190,11 @@ const SubContain = styled.div`
 `;
 
 const Img = styled.img`
-  width: 200px;
+  width: 230px;
   height: 200px;
-  margin: 30px 30px 0px 70px;
-  filter: drop-shadow(0px 5px 0px #331b3f);
+  margin-top: 30px;
+  margin-left: 30px;
+  filter: drop-shadow(0px 3px 0px #331b3f);
 `;
 
 export const ButtonContain = styled.div`
