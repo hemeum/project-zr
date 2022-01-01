@@ -22,6 +22,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.1",
+    "http-proxy-middleware": "^2.0.1",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "react": "^17.0.2",
@@ -41,11 +42,10 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start": "node --exec ts-node ./server/server.ts",
-    "backend": "nodemon --exec ts-node ./server/server.ts",
-    "frontend": "npm run front --prefix client",
-    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\"",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
